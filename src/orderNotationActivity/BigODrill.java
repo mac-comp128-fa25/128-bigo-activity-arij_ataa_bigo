@@ -36,7 +36,7 @@ public class BigODrill {
 
         return numArr;
     }
-    //O(N)
+    // this is an algorithm with a runtime of O(N), as we ar iterating through the array once and changing every element.
 
     /**
      * (3)
@@ -54,9 +54,9 @@ public class BigODrill {
         return tempArr;
     }
 
-    //O(Log(n))
-    //
-
+    //The big O notation of this algorithm is O(Log(n)), as this function increases the index by an amount suited to powers to 2
+    //Log2(1000) would be 10, and a Log2(1000,1000) would be twice as much with 20.
+ 
     /**
      * (4)
      * Demonstrates an algorithm with TODO: What is the O( ? ) of the following code?
@@ -66,9 +66,23 @@ public class BigODrill {
     public static double sparsity(int[][] numArr) {
         //TODO: Write the code that calculates and returns the sparsity of the input
         // rectangular integer array numArr
-        return 0; // Placeholder to make it compile.
+        int totalRow = numArr.length;
+        int totaCol = numArr[0].length;
+        int total = totalRow * totaCol;
+        int zeroCounter = 0;
+        for (int x= 0; x < totalRow; x++){
+            for (int y = 0; y < totaCol; y++){
+                if (numArr[x][y] == 0){
+                    zeroCounter++;
+                }
+            }
+
+        }
+        return (zeroCounter / total); // Placeholder to make it compile.
 
     }
+    //Both in the case of 1000 elements and in the case of 1,000,000 elements, the big O notation would be o(N) as we would iterate through the entire array regardless
+    //A sparse matrix used to represent the dietary needs of respective animals
 
     /**
      * (5)
@@ -80,6 +94,7 @@ public class BigODrill {
     public static int[][] sparseMatrix(int[][] numArr, double sparsityValue) {
         assert(sparsityValue >= 0.0 && sparsityValue <= 1.0);
         Random randGenerator = new Random();
+
 
         //TODO: Write the code to overwrite the numArr such that it is a sparse matrix
         // with a sparsity of %75
